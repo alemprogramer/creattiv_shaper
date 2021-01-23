@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  </head>
+  <body>
+
+    <div class="container mt-5">
+      
+        <div id="data" >loding..</div>
+      </div>
+    </div>
+
+
+    
+      
+    <script>
+          // fetch('https://api.covid19api.com/summary')
+          //     .then(res =>  res.json())
+          //     .then(data =>{
+          //        console.log(data.Countries[13].TotalConfirmed);
+          //       const data1 = document.getElementById('data');
+          //       let result = ` 
+          //       <div class="card" style="width: 18rem;">
+          //                <img src="..." class="card-img-top" alt="...">
+          //               <div class="card-body">
+          //                  <h5 class="card-title">County name : ${data.Countries[13].Country}</h5>
+          //                  <p class="card-text">TotalConfirmed : ${data.Countries[13].TotalConfirmed}</p>
+        
+          //                </div>
+          //        </div>`
+          //       data1.innerHTML =result;
+                
+          //     })
+          //     .catch((err)=>{
+          //         console.log(err);
+          //     })
+        
+     let covd19 = async ()=>{
+          try{
+               let res = await fetch('https://api.covid19api.com/summary')
+               let  data =  await res.json();
+               console.log(data);
+               const data1 = document.getElementById('data');
+               let result = ` 
+                <div class="card" style="width: 18rem;">
+                         <img src="..." class="card-img-top" alt="...">
+                        <div class="card-body">
+                           <h5 class="card-title">County name : ${data.Countries[13].Country}</h5>
+                           <p class="card-text">TotalConfirmed : ${data.Countries[13].TotalConfirmed}</p>
+        
+                         </div>
+                 </div>`
+                data1.innerHTML =result;
+
+          }catch(err){
+               console.log(err);
+          }
+     }
+
+      
+
+        covd19();
+
+    </script>
+  </body>
+</html>
